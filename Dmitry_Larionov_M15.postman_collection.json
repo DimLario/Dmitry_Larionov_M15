@@ -1,0 +1,980 @@
+{
+	"info": {
+		"_postman_id": "cb7fd3b2-adfb-4824-af20-d159a5b63919",
+		"name": "Dmitry_Larionov_M15",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25997276"
+	},
+	"item": [
+		{
+			"name": "Job Cafe Project API",
+			"item": [
+				{
+					"name": "PositiveTests",
+					"item": [
+						{
+							"name": "Get job by location test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonResponce = pm.response.json();",
+											"",
+											"pm.test(\"Status code test\", function(){",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"var jsonResponse = pm.response.json();",
+											"    pm.test(\"Location array test\", function(){",
+											"//check that response contains array    ",
+											"    pm.expect(jsonResponse.content).to.be.an(\"array\");",
+											"//go over array and verify location of each one of them ",
+											"    for(let i=0; i< jsonResponse.content.length; i++){",
+											"    console.log(jsonResponse.content[i].location);",
+											"    pm.expect(jsonResponse.content[i].location).to.eq(\"Toronto, ON, Canada\");",
+											"}",
+											"});",
+											"",
+											"",
+											"pm.test(\"ID test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].id).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Position test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].position).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Company test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].company).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Location test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].location).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Seniority test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].seniority).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Link to apply test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].link).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Link is not null test\", function(){",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].link).to.not.eql(null);",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Description test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].description).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Salary test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].salary).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Date test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].date).to.exist;",
+											"    }",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{location}}Toronto",
+									"host": [
+										"{{location}}Toronto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get job by position test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonResponce = pm.response.json();",
+											"",
+											"pm.test(\"Status code test\", function(){",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"var jsonResponse = pm.response.json();",
+											"    pm.test(\"Position array test\", function(){",
+											"//check that response contains array    ",
+											"    pm.expect(jsonResponse.content).to.be.an(\"array\");",
+											"//go over array and verify location of each one of them ",
+											"    for(let i=0; i< jsonResponse.content.length; i++){",
+											"    console.log(jsonResponse.content[i].position);",
+											"    pm.expect(jsonResponce.content[i].position).to.exist;",
+											"}",
+											"});",
+											"",
+											"",
+											"pm.test(\"ID test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].id).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Position test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].position).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Company test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].company).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Location test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].location).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Seniority test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].seniority).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Link to apply test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].link).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Link is not null test\", function(){",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].link).to.not.eql(null);",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Description test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].description).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Salary test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].salary).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Date test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].date).to.exist;",
+											"    }",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{position}}=QA",
+									"host": [
+										"{{position}}=QA"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get job by position and location test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonResponce = pm.response.json();",
+											"",
+											"pm.test(\"Status code test\", function(){",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"var jsonResponse = pm.response.json();",
+											"    pm.test(\"Position array test\", function(){",
+											"//check that response contains array    ",
+											"    pm.expect(jsonResponse.content).to.be.an(\"array\");",
+											"//go over array and verify location of each one of them ",
+											"    for(let i=0; i< jsonResponse.content.length; i++){",
+											"    console.log(jsonResponse.content[i].position);",
+											"    pm.expect(jsonResponce.content[i].position).to.include(\"QA\");",
+											"}",
+											"});",
+											"",
+											"",
+											"pm.test(\"ID test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].id).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Position test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].position).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Company test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].company).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Location test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].location).to.include(\"Dallas\");",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Seniority test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].seniority).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Link to apply test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].link).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Link is not null test\", function(){",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].link).to.not.eql(null);",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Description test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].description).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Salary test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].salary).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Date test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].date).to.exist;",
+											"    }",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{position}}=QA&location=Dallas",
+									"host": [
+										"{{position}}=QA&location=Dallas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get job by position location and company test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonResponce = pm.response.json();",
+											"",
+											"pm.test(\"Status code test\", function(){",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"var jsonResponse = pm.response.json();",
+											"    pm.test(\"Position array test\", function(){",
+											"//check that response contains array    ",
+											"    pm.expect(jsonResponse.content).to.be.an(\"array\");",
+											"//go over array and verify location of each one of them ",
+											"    for(let i=0; i< jsonResponse.content.length; i++){",
+											"    console.log(jsonResponse.content[i].position);",
+											"    pm.expect(jsonResponce.content[i].position).to.include(\"Manager\");",
+											"}",
+											"});",
+											"",
+											"",
+											"pm.test(\"ID test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].id).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Position test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].position).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Company test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].company).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Location test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].location).to.include(\"Toronto\");",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Seniority test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].seniority).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Link to apply test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].link).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Link is not null test\", function(){",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].link).to.not.eql(null);",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Description test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].description).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Salary test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].salary).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Date test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].date).to.exist;",
+											"    }",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{position}}=Manager&location=Toronto&company=Apple",
+									"host": [
+										"{{position}}=Manager&location=Toronto&company=Apple"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get job by company test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonResponce = pm.response.json();",
+											"",
+											"pm.test(\"Status code test\", function(){",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"var jsonResponse = pm.response.json();",
+											"    pm.test(\"Company array test\", function(){",
+											"//check that response contains array    ",
+											"    pm.expect(jsonResponse.content).to.be.an(\"array\");",
+											"//go over array and verify location of each one of them ",
+											"    for(let i=0; i< jsonResponse.content.length; i++){",
+											"    console.log(jsonResponse.content[i].company);",
+											"    pm.expect(jsonResponse.content[i].company).to.eq(\"Apple\");",
+											"}",
+											"});",
+											"",
+											"",
+											"pm.test(\"ID test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].id).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Position test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].position).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Company test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].company).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Location test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].location).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Seniority test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].seniority).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Link to apply test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].link).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Link is not null test\", function(){",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].link).to.not.eql(null);",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Description test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].description).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Salary test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].salary).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Date test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].date).to.exist;",
+											"    }",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{company}}=Apple",
+									"host": [
+										"{{company}}=Apple"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get job by date test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonResponce = pm.response.json();",
+											"",
+											"pm.test(\"Status code test\", function(){",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"var jsonResponse = pm.response.json();",
+											"    pm.test(\"Date array test\", function(){",
+											"//check that response contains array    ",
+											"    pm.expect(jsonResponse.content).to.be.an(\"array\");",
+											"//go over array and verify location of each one of them ",
+											"    for(let i=0; i< jsonResponse.content.length; i++){",
+											"    console.log(jsonResponse.content[i].date);",
+											"    pm.expect(jsonResponse.content[i].date).to.eq(\"2023-08-10\");",
+											"}",
+											"});",
+											"",
+											"",
+											"pm.test(\"ID test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].id).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Position test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].position).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Company test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].company).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Location test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].location).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Seniority test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].seniority).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Link to apply test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].link).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Link is not null test\", function(){",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].link).to.not.eql(null);",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Description test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].description).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Salary test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].salary).to.exist;",
+											"    }",
+											"});",
+											"",
+											"pm.test(\"Date test\", function(){",
+											"    var jsonResponce = pm.response.json();",
+											"    for (var i = 0; i < jsonResponce.content.length; i++) {",
+											"        pm.expect(jsonResponce.content[i].date).to.exist;",
+											"    }",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{date}}2023-08-10",
+									"host": [
+										"{{date}}2023-08-10"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "NegativeTests",
+					"item": [
+						{
+							"name": "Get job by incorrect location test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code test\", function(){",
+											"    pm.response.to.have.status(204);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{location}}Blablabla",
+									"host": [
+										"{{location}}Blablabla"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Special characters in location test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code test\", function(){",
+											"    pm.response.to.have.status(400);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{location}}=*&^@#*$^(@#4",
+									"auth": {
+										"user": "{{location}}=*&^"
+									},
+									"hash": "*$^(@#4"
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get job by incorrect position test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code test\", function(){",
+											"    pm.response.to.have.status(204);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{position}}=blablabla",
+									"host": [
+										"{{position}}=blablabla"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Special characters in company name test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code test\", function(){",
+											"    pm.response.to.have.status(204);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{company}}=!@&#%",
+									"auth": {
+										"user": "{{company}}=!"
+									},
+									"host": [
+										"&"
+									],
+									"hash": "%"
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Invalid date test",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code test\", function(){",
+											"    pm.response.to.have.status(204);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{date}}abc87567556w654",
+									"host": [
+										"{{date}}abc87567556w654"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "location",
+			"value": "http://api.jobka.net:8081/jobs?location="
+		},
+		{
+			"key": "position",
+			"value": "http://api.jobka.net:8081/jobs?position"
+		},
+		{
+			"key": "company",
+			"value": "http://api.jobka.net:8081/jobs?company"
+		},
+		{
+			"key": "date",
+			"value": "api"
+		}
+	]
+}
